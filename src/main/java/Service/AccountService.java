@@ -19,5 +19,9 @@ public class AccountService {
         }
         return accountDAO.insertAccount(account);
     }
+
+    public Account verifyLogin(Account account) {
+        return accountDAO.getAccountByUsernameAndPassword(account.getUsername(), account.getPassword());
+    }
     
 }
