@@ -21,7 +21,7 @@ public class SocialMediaController {
 
     public SocialMediaController(){
         accountService = new AccountService();
-        messageService = new MessageService();
+        messageService = new MessageService(accountService);
     }
     /**
      * In order for the test cases to work, you will need to write the endpoints in the startAPI() method, as the test

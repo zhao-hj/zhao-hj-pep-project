@@ -7,10 +7,14 @@ public class AccountService {
     AccountDAO accountDAO;
 
     /**
-     * No-args constructor for a flightService instantiates a plain flightDAO.
+     * No-args constructor for an AccountService instantiates a plain AccountDAO.
      */
     public AccountService(){
         accountDAO = new AccountDAO();
+    }
+
+    public AccountService(AccountDAO accountDAO){
+        this.accountDAO = accountDAO;
     }
 
     public Account addAccount(Account account) {
@@ -22,6 +26,10 @@ public class AccountService {
 
     public Account verifyLogin(Account account) {
         return accountDAO.getAccountByUsernameAndPassword(account.getUsername(), account.getPassword());
+    }
+
+    public Account getAccountbyId(int id) {
+        return accountDAO.getAccountById(id);
     }
     
 }

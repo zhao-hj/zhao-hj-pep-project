@@ -32,7 +32,6 @@ public class AccountDAO {
         return null;
     }
 
-    //helper class to be used by AccountService to check if a username already exists before inserting a new account into the database
     public Account getAccountByUsername(String username) {
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -62,6 +61,27 @@ public class AccountDAO {
 
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while(rs.next()){
+                Account account = new Account(rs.getInt("account_id"),
+                        rs.getString("username"),
+                        rs.getString("password"));
+                return account;
+            }
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return null;
+    }
+
+    public Account getAccountById(int id) {
+        Connection connection = ConnectionUtil.getConnection();
+        try {
+            String sql = "SELECT * FROM account WHERE account_id = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, id);
 
             ResultSet rs = preparedStatement.executeQuery();
             while(rs.next()){
