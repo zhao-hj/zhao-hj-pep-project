@@ -11,6 +11,7 @@ import Util.ConnectionUtil;
 
 public class AccountDAO {
 
+    // insert an account into the account table
     public Account insertAccount(Account account) {
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -32,6 +33,7 @@ public class AccountDAO {
         return null;
     }
 
+    // retrieves an account from the account table using the associated username
     public Account getAccountByUsername(String username) {
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -53,6 +55,9 @@ public class AccountDAO {
         return null;
     }
     
+    /** retrieves an account using the username and password.
+     *  if the account exists it means it is a valid user trying to login
+     */ 
     public Account getAccountByUsernameAndPassword(String username, String password) {
         Connection connection = ConnectionUtil.getConnection();
         try {
@@ -75,6 +80,7 @@ public class AccountDAO {
         return null;
     }
 
+    // retrieves an account using its ID
     public Account getAccountById(int account_id) {
         Connection connection = ConnectionUtil.getConnection();
         try {

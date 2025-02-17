@@ -16,16 +16,24 @@ public class MessageService {
         messageDAO = new MessageDAO();
     }
 
+    /**
+     * Constructor for an MessageService when an MessageDAO is provided.
+     * This is used for when a mock MessageDAO that exhibits mock behavior is used in the test cases.
+     * This would allow the testing of MessageService independently of MessageDAO.
+     */
     public MessageService(MessageDAO messageDAO){
         this.messageDAO = messageDAO;
     }
 
+    // Constructor using dependency injection to use an AccountService
+    // AccountService is needed to check if a posted_by ID refers to a valid account_id
     public MessageService(AccountService accountService) {
         this.accountService = accountService;
         messageDAO = new MessageDAO();
     }
 
     public Message addMessage(Message message) {
+        // checks if the message_text is blank or exceeds 255 characters and if posted_by refers to an actual user
         if (message.getMessage_text().isEmpty() || message.getMessage_text().length() > 255 || accountService.getAccountbyId(message.getPosted_by()) == null) {
             return null;
         }
@@ -59,8 +67,7 @@ public class MessageService {
         }
     }
 
-    public Object getAllMessagesFromUser(int account_id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllMessagesFromUser'");
+    public List<Message> getAllMessagesFromUser(int account_id) {
+        return messageDAO.getAllMessagesFromUser(account_id);
     } 
 }

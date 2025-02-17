@@ -1,7 +1,5 @@
 package Controller;
 
-import org.h2.util.json.JSONObject;
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -45,7 +43,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to post a new account
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      * @throws JsonProcessingException will be thrown if there is an issue converting JSON into an object.
      */
@@ -62,7 +60,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to verify a login
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      * @throws JsonProcessingException will be thrown if there is an issue converting JSON into an object.
      */
@@ -79,7 +77,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to post a new message
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      * @throws JsonProcessingException will be thrown if there is an issue converting JSON into an object.
      */
@@ -96,7 +94,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to retrieve all messages
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void getAllMessagesHandler(Context context) {
@@ -104,7 +102,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to retrieve a message by its ID
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void getMessageByIdHandler(Context context) {
@@ -119,7 +117,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to delete a message by its ID
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void deleteMessageByIdHandler(Context context) {
@@ -134,7 +132,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to update a message's message_text
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      * @throws JsonProcessingException will be thrown if there is an issue converting JSON into an object.
      */
@@ -154,7 +152,7 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
+     * This is a handler to retrieve all messages from a specific user using their ID
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void getAllMessagesFromUserHandler(Context context) {
