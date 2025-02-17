@@ -120,7 +120,13 @@ public class SocialMediaController {
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void deleteMessageByIdHandler(Context context) {
-        context.json("sample text");
+        Message deletedMessage = messageService.deleteMessageById(Integer.parseInt(context.pathParam("message_id")));
+        if (deletedMessage == null) {
+            context.status(200);
+        }
+        else {
+            context.json(deletedMessage);
+        }
     }
 
     /**
