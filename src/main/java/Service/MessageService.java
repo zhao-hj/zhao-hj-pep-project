@@ -48,5 +48,19 @@ public class MessageService {
         }
         return null;
     }
-    
+
+    public Message updateMessage(int message_id, String message_text) {
+        if (messageDAO.getMessageById(message_id) == null || message_text.isEmpty() || message_text.length() > 255) {
+            return null;
+        }
+        else {
+            messageDAO.updateMessage(message_id, message_text);
+            return messageDAO.getMessageById(message_id);
+        }
+    }
+
+    public Object getAllMessagesFromUser(int account_id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllMessagesFromUser'");
+    } 
 }
