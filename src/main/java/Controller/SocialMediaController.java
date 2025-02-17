@@ -106,7 +106,13 @@ public class SocialMediaController {
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void getMessageByIdHandler(Context context) {
-        context.json("sample text");
+        Message retrievedMessage = messageService.getMessageById(Integer.parseInt(context.pathParam("message_id")));
+        if (retrievedMessage == null) {
+            context.status(200);
+        }
+        else {
+            context.json(retrievedMessage);            
+        }
     }
 
     /**

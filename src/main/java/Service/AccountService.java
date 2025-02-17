@@ -28,8 +28,8 @@ public class AccountService {
         return accountDAO.getAccountByUsernameAndPassword(account.getUsername(), account.getPassword());
     }
 
-    public Account getAccountbyId(int id) {
-        return accountDAO.getAccountById(id);
+    public Account getAccountbyId(int account_id) {
+        return accountDAO.getAccountById(account_id);
     }
     
 }
